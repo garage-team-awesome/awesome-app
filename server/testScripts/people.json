@@ -1,0 +1,11 @@
+{
+  "firstName": "Mitch",
+  "lastName": "Hedberg",
+  "isServiceProvider": true,
+  "serviceProvided": "Comedy",
+  "email": "mitch@hedberg.com",
+  "telephone": "123-456-7890",
+  "description": "Deceased comedian.",
+  "additionalInfo": "Not really, kind of a shy guy",
+  "active": true
+}
