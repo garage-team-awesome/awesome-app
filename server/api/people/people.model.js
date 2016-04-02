@@ -11,7 +11,8 @@ var PeopleSchema = new mongoose.Schema({
   telephone: String,
   description: String,
   additionalInfo: String,
-  active: Boolean
+  active: Boolean,
+  userId: mongoose.Schema.Types.ObjectId
 });
 
 export default mongoose.model('People', PeopleSchema);
