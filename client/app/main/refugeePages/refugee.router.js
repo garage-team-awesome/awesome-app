@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('awesomeAppApp.user')
+angular.module('awesomeAppApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('chat', {
