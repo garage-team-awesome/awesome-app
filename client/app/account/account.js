@@ -27,6 +27,20 @@ angular.module('awesomeAppApp')
         controller: 'SignupController',
         controllerAs: 'vm'
       })
+      .state('profileView', {
+        url: '/users/:id',
+        templateUrl: 'app/account/profile/user-view.html',
+        controller: 'ProfileViewController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
+      .state('profileEdit', {
+        url: '/users/:id',
+        templateUrl: 'app/account/profile/user-edit.html',
+        controller: 'ProfileController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',

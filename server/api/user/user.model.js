@@ -19,7 +19,6 @@ var addressSubschema = {
 
 
 var UserSchema = new Schema({
-  username: String,
   firstname: String,
   lastname: String,
   phone: {

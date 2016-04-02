@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/channels              ->  index
+ * POST    /api/channels              ->  create
+ * GET     /api/channels/:id          ->  show
+ * PUT     /api/channels/:id          ->  update
+ * DELETE  /api/channels/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Thing from './thing.model';
+import Channel from './channel.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -24,8 +24,8 @@ function respondWithResult(res, statusCode) {
 function saveUpdates(updates) {
   return function(entity) {
     var updated = _.merge(entity, updates);
-    return updated.save()
-      .then(updated => {
+    return updated.saveAsync()
+      .spread(updated => {
         return updated;
       });
   };
@@ -34,7 +34,7 @@ function saveUpdates(updates) {
 function removeEntity(res) {
   return function(entity) {
     if (entity) {
-      return entity.remove()
+      return entity.removeAsync()
         .then(() => {
           res.status(204).end();
         });
@@ -59,43 +59,43 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Things
+// Gets a list of Channels
 export function index(req, res) {
-  return Thing.find().exec()
+  Channel.find().populate('owner messages.user')
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Thing from the DB
+// Gets a single Channel from the DB
 export function show(req, res) {
-  return Thing.findById(req.params.id).exec()
+  Channel.findById(req.params.id).populate('owner messages.user')
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Creates a new Thing in the DB
+// Creates a new Channel in the DB
 export function create(req, res) {
-  return Thing.create(req.body)
+  Channel.createAsync(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Thing in the DB
+// Updates an existing Channel in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Thing.findById(req.params.id).exec()
+  Channel.findById(req.params.id).populate('owner messages.user')
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Deletes a Thing from the DB
+// Deletes a Channel from the DB
 export function destroy(req, res) {
-  return Thing.findById(req.params.id).exec()
+  Channel.findById(req.params.id).populate('owner messages.user')
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
