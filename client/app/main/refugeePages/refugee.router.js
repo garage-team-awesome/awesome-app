@@ -14,8 +14,8 @@ angular.module('awesomeAppApp')
         url: '/home',
         templateUrl: 'app/main/refugeePages/home.template.html',
         controller: 'HomeController',
-        controllerAs: 'vm',
-        authenticate: 'user'
+        controllerAs: 'vm'
+        // authenticate: 'user'
       })
       .state('medical', {
         url: '/medical',

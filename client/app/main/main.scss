@@ -62,6 +62,27 @@ div.navbar {
   background: #4393B9;
 }
 
+.circle1 {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  width: 75vw;
+  height: 75vw; 
+  background: black;
+  /* width and height can be anything, as long as they're equal */
+}
+
+.circle2 {
+  align-self: center;
+  top: 15vw;
+  left: 15vw;
+  border-radius: 50%;
+  width: 38vw;
+  height: 38vw; 
+  background: green;
+  /* width and height can be anything, as long as they're equal */
+}
+
 .navbar-text {
   margin-left: 15px;
 }
