@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: No test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "mongodb": "~2.0.49",
+    "consolidate": "~0.13.1",
+    "bcrypt-nodejs": "~0.0.3",
+    "swig": "~1.4.2",
+    "validator": "~4.3.0",
+    "body-parser": "~1.14.1",
+    "cookie-parser": "~1.4.0",
+    "read": "~1.0.7"
+  },
+  "author": "Daniel L. Robertson",
+  "license": "MPL-2.0"
+}
