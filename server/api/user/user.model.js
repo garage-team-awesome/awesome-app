@@ -7,8 +7,40 @@ import {Schema} from 'mongoose';
 
 const authTypes = ['github', 'twitter', 'facebook', 'google'];
 
+var addressSubschema = {
+    street1: String,
+    street2: String,
+    city: String,
+    city: String,
+    state: String,
+    zip: String,
+}
+
+
+
 var UserSchema = new Schema({
-  name: String,
+  username: String,
+  firstname: String,
+  lastname: String,
+  phone: {
+        type: String,
+        validate: {
+          validator: function(v) {
+            return /\d{3}-\d{3}-\d{4}/.test(v);
+          },
+          message: '{VALUE} is not a valid phone number!'
+        }
+    },
+  address: addressSubschema,
+  origin: String,
+  religion: String,
+  language: String,
+  profession: String,
+  age: Number,
+  dateOfEntry: Date,
+  socialsecurity: String,
+  passport: String,
+
   email: {
     type: String,
     lowercase: true
