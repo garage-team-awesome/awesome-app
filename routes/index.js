@@ -2,10 +2,10 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-var bodyParser    = require("body-parser")
-  , cookieParser  = require("cookie-parser")
-  , errorHandler  = require("./error").errorHandler
-  , SeshHandler   = require("./sesh");
+var bodyParser   = require("body-parser")
+  , cookieParser = require("cookie-parser")
+  , errorHandler = require("./error").errorHandler
+  , Sesh         = require("./sesh");
 
 module.exports = exports = function(app, db) {
     var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -16,6 +16,7 @@ module.exports = exports = function(app, db) {
 
     app.use(sesh.isLoggedInMiddleware);
 
+    app.get("/", sesh.displayLogin);
     app.get("/login", sesh.displayLogin);
     app.post("/login", jsonParser, urlencodedParser, sesh.handleLogin);
 

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Team Awesome{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script>
+            var d = document.documentElement.style
+            if(!(('flexWrap' in d) || ('WebkitFlexWrap' in d) || ('msFlexWrap' in d))){
+                  alert('Your browser does not support `flex-wrap`. This Website heavily relys on `display: flex` and may not display properly');
+            }
+            function navCollapse() {
+                var items = document.getElementById("navbar");
+                console.log(items.style.display);
+                if(items.style.display == "none") {
+                    items.style.display = "block";
+                } else if(items.style.display == "block") {
+                    items.style.display = "none";
+                } else if(window.innerWidth <= 400) {
+                    items.style.display = "block";
+                } else {
+                    items.style.display = "none";
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="/css/main.css">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="top-bar">
+            <ul class="navigation">
+                <li><button onclick="navCollapse()" class="fa fa-bars"></button></li>
+                <li id="me"><a href="./index.html">Daniel Robertson</a></li>
+            </ul>
+        </div>
+        <nav id="navbar">
+            <div id="nav-list">
+                <ul id="destinations" class="navigation">
+                    <li><a href="./index.html">About Me</a></li>
+                    <li><a href="./drobertson.pdf">Resume</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id = "main">
+            <article>
+                {% block content %}
+                {% endblock %}
+            </article>
+            <div id="contact">
+                <div id="icons">
+                    <div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div id="dummy-dom">
+                </div>
+            </div>
+            </main>
+        </div>
+    </body>
+</html>

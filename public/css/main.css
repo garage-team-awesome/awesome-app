@@ -1,0 +1,222 @@
+body{
+    background: #fdf6e3;
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-family: "League Gothic", Impact, sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-shadow: none;
+  word-wrap: break-word;
+}
+
+h1 {
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1{
+  font-size: 65px;
+  line-height: 1.2em;
+  border-bottom: #CCC solid 1px;
+  padding: 20px 0;
+}
+
+div#top-bar {
+    position: fixed;
+    height: 50px;
+    align-self: center;
+    width: 100%;
+    padding: 10px 50px 0px 10px;
+    color: rgba(192, 192, 192, 0.2);
+    background: rgba(19, 13, 7, 0.90);
+    z-index: 2
+}
+ul.navigation {
+    list-style-type: none;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+div#top-bar > ul {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+}
+
+div#top-bar > ul > #me {
+    margin-left: auto;
+    font-size: 175%;
+    align-self: flex-end;
+}
+
+ul.navigation > li > button {
+    font-size: 24px;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(192, 192, 192, 0.4);
+    color: rgba(236, 214, 125, 0.34);
+    cursor:pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+ul.navigation > li > button:hover,
+ul.navigation > li > button:focus {
+    border-color: rgba(192, 192, 192, 0.2);
+    color: rgba(236, 214, 125, 0.24);
+}
+
+li#me > a {
+    color: rgba(236, 214, 125, 0.84);
+}
+
+li#me > a:focus,
+li#me > a:hover {
+    color: rgba(236, 214, 125, 0.54);
+}
+
+#profile {
+    max-width: 20em;
+}
+
+div#main > article {
+    padding: 75px 10px 10px 20px;
+    order: 2;
+    min-width: 12em;
+    flex: 1;
+    flex-flow: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+nav > div#nav-list {
+    align-self: center;
+    display: flex;
+    max-width: 150px;
+    height: 70%;
+    flex-flow: column;
+    background: rgba(19, 13, 7, 0.90);
+    color: #9d9d9d;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+ul#destinations {
+    order: 1;
+    padding: 20px 15px 20px 10px;
+}
+
+ul#destinations > li {
+    padding-bottom: 7px;
+}
+
+ul#destinations > li > ul > li {
+    padding-bottom: 7px;
+}
+
+ul#destinations > li > ul {
+    padding-left: 10px;
+}
+
+ul.navigation > li > a {
+    color: rgba(236, 214, 125, 0.70);
+    text-decoration: none;
+}
+
+ul.navigation > li > a:hover,
+ul.navigation > li > a:focus {
+    color: #2aa198;
+    background-color: rgba(35, 35, 35, 0.2);
+    text-decoration: none;
+}
+
+div#contact {
+    position: fixed;
+    display: block;
+    right: 0px;
+    top: 25%;
+    width: 30px;
+    height: 120px;
+    z-index: 3;
+}
+
+div#icons {
+    display: flex;
+    flex-flow: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background: rgba(28, 13, 7, 0.80);
+}
+
+div#contact div#icons > a {
+    padding: 5px 10px 5px 10px;
+}
+
+nav > ul > li {
+    display: flex;
+    flex-flow: column;
+}
+
+nav > ul > li:not(:target):not(:hover) > ul {
+    visibility: collapse;
+}
+
+.profile {
+    max-width: 50%;
+}
+
+@media (min-width: 600px), (min-height: 400px)  {
+    div#main {
+        order: 1;
+        display: flex;
+        padding: 0px 30px 0px 100px;
+        height: 100%;
+    }
+
+    nav {
+        position:fixed;
+        display: block;
+        overflow: auto;
+        height: 100%;
+        left: 0px;
+        top: 15%;
+        z-index: 3;
+        width: 8em;
+    }
+}
+
+@media (max-width: 600px), (max-height: 400px) {
+    div#main {
+        order: 1;
+        display: flex;
+        padding: 0px 30px 0px 10px;
+        height: 100%;
+    }
+
+    nav {
+        position:fixed;
+        display: none;
+        left: 0px;
+        top: 15%;
+        height: 100%;
+        z-index: 3;
+    }
+}

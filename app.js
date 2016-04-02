@@ -33,30 +33,39 @@ while(i < new_len) {
 
 var url = "mongodb://" + user_input["host"] + ":" + user_input["port"] + "/" + user_input["db"];
 
-read({"prompt": "Password: ", "silent": true}, function(err, pwd) {
-    MongoClient.connect(url, function(err, db) {
-        db.authenticate(user_input["usr"], pwd, function(err, result) {
-            "use strict";
+function runServer(err, db) {
+    if(err) throw err;
 
-            if(!result) throw Error("Failed to log in with user - " + user_input["usr"])
+    app.engine("html", cons.swig);
+    
+    app.set("view engine", "html");
+    
+    app.use(express.static(path.join(__dirname, 'public')));
+    
+    app.set("views", __dirname + "/views");
+    
+    app.use(cookieParser());
+    
+    routes(app, db);
+    
+    app.listen(3000);
+    
+    console.log("Express server listening on port 3000");
+}
 
-            if(err) throw err;
-
-            app.engine("html", cons.swig);
+if(user_input["usr"]) {
+    read({"prompt": "Password: ", "silent": true}, function(err, pwd) {
+        MongoClient.connect(url, function(err, db) {
+            db.authenticate(user_input["usr"], pwd, function(err, result) {
+                "use strict";
     
-            app.set("view engine", "html");
-    
-            app.use(express.static(path.join(__dirname, 'public')));
-    
-            app.set("views", __dirname + "/views");
-    
-            app.use(cookieParser());
-    
-            routes(app, db);
-    
-            app.listen(3000);
-    
-            console.log("Express server listening on port 3000");
+                if(!result) throw Error("Failed to log in with user - " + user_input["usr"]);
+                runServer(err, db);
+            });
         });
     });
-});
+} else {
+    MongoClient.connect(url, function(err, db) {
+        runServer(err, db)
+    });
+}
