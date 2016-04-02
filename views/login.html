@@ -1,0 +1,25 @@
+{% extends 'basic_layout.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class = "row">
+            <div class="col-sm-5 col-md-3">
+                <form class="form-signin" method="post">
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <label for="usr" class="sr-only">Username</label>
+                    <input type="usr" id="usr" name = "usr" class="form-control" placeholder="Username" required autofocus>
+                    <label for="pass" class="sr-only">Password</label>
+                    <input type="password" id="pass" name = "pass" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <div class="error">
+                        {{login_err}}
+                    </div>
+                    <div class="row">
+                        <a href="/signup">Create a new user</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
