@@ -1,1 +1,8 @@
-<h1>People Template</h1>
+<h1>People</h1>
+<ul>
+	<li ng-repeat="person in peoples">
+		<div><img src="assets/images/face.png"></div>
+		<div>{{person.serviceProvided}}</div>
+		<div>{{person.firstName}} {{person.lastName}}</div>
+	</li>
+</ul>
