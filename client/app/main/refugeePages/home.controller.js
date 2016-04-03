@@ -2,6 +2,7 @@
 
 class HomeController {
   constructor() {
+
   }
 
 

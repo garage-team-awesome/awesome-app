@@ -5,6 +5,7 @@ body{
   font-family: "Lato", sans-serif;
   margin: 0;
   font-weight: normal;
+  overflow: hidden
 }
 
 .thing-form {
@@ -85,4 +86,21 @@ div.navbar {
 
 .navbar-text {
   margin-left: 15px;
+}
+
+#leftHalf {
+   background: url(../assets/images/refugeeAlone1.png);
+   background-size: auto 100%;
+   width: 50%;
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   height: 100vh;
+}
+
+#rightHalf {
+   width: 50%;
+   position: absolute;
+   right: 0px;
+   height: 100vh;
 }
